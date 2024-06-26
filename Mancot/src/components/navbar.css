@@ -1,0 +1,74 @@
+.navbar{	
+    background-color: rgb(7 89 133);
+    height: 100px;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    padding-bottom: .5%;
+}
+.Link{
+    color: white;
+    text-decoration: none;
+    width: 109px;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-left: 10%;
+    
+}
+
+.navbar h6{
+    margin-top: 0%;
+    margin-bottom: 1%;
+
+}
+.ele{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    padding-top: 12px;
+    margin-right: 10%;
+    
+}
+.About{
+    
+    color:white;
+    text-decoration: none;
+}
+.ele h2{
+    margin-right:20px;
+    transition: text-decoration 10s ease-in-out;
+}
+.ele h2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
+.oswald-bold {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:200;
+    font-style: normal;
+  }.cart {
+    position: relative;
+    margin-top: 10px;
+    display: inline-block;
+    align-items: center;
+    margin-bottom: 6px;
+}
+.cart-icon{
+    color:black;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
