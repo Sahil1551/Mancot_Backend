@@ -48,12 +48,7 @@ mongoose.connect(process.env.MONGODB_URI , {
 });
 
 // Routes
-app.get("/", (req, res) => {
-  
-app.use(express.static(path.resolve(__dirname, 'Mancot', 'dist')));
 
-  res.sendFile(path.resolve(__dirname, 'Mancot', 'dist', 'index.html'));
-});
 app.use('/user', require('./Routes/userRoutes'));
 app.use('/api', require('./Routes/productRoutes'));
 app.use('/api', require('./Routes/upload'));
@@ -178,7 +173,8 @@ app.post('/api/paymentVerifcation', async(req, res) => {
     console.error('Error in payment verification route:', err);
     res.status(500).json({ message: 'Something went wrong!' });
   }});// Error handling middleware
-app.use((err, req, res, next) => {
+  
+  app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
