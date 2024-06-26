@@ -48,9 +48,10 @@ mongoose.connect(process.env.MONGODB_URI , {
 });
 
 // Routes
+app.get("/", (req, res) => {
+  
 app.use(express.static(path.resolve(__dirname, 'Mancot', 'dist')));
 
-app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, 'Mancot', 'dist', 'index.html'));
 });
 app.use('/user', require('./Routes/userRoutes'));
