@@ -159,7 +159,7 @@ app.post('/api/paymentVerifcation', async(req, res) => {
         console.log('Payment status updated successfully');
         const objectIdString = updatedCheckout._id.toString(); 
         res.cookie('paymentData', JSON.stringify(objectIdString));
-        res.redirect('http://localhost:5173/api/paymentVerification');
+        res.redirect('https://frontend-p2pvht0kk-sahil1551s-projects.vercel.app/api/paymentVerification');
       
       } catch (error) {
         console.error('Error updating payment status:', error);
