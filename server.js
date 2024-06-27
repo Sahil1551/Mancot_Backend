@@ -183,7 +183,7 @@ app.post('/api/paymentVerifcation', async(req, res) => {
         });
     
         // Set JWT token as a cookie
-        res.cookie('idi', token, {
+        res.cookie('data', token, {
           httpOnly: false,
           path: '/',
           domain: 'mancots.onrender.com',
