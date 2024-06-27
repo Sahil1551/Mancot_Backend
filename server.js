@@ -23,8 +23,19 @@ const transporter = nodemailer.createTransport({
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  'https://frontend-p2pvht0kk-sahil1551s-projects.vercel.app',
+  'https://frontend-snowy-pi-75.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://frontend-p2pvht0kk-sahil1551s-projects.vercel.app' // Replace with your frontend domain
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 app.use(express.json());
