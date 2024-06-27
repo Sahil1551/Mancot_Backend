@@ -24,20 +24,21 @@ const app = express();
 
 // Middleware
 const allowedOrigins = [
-  'https://frontend-p2pvht0kk-sahil1551s-projects.vercel.app',
-  'https://frontend-snowy-pi-75.vercel.app'
+  'https://frontend-snowy-pi-75.vercel.app'  // Add other allowed origins as needed
 ];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
-  }
-}));
+  },
+  credentials: true  // Allow cookies and authorization headers
+};
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({
@@ -172,9 +173,13 @@ app.post('/api/paymentVerifcation', async(req, res) => {
 
         console.log('Payment status updated successfully',updatedCheckout._id);
         objectIdString=updatedCheckout._id.toString();
-        res.cookie('data',JSON.stringify({objectIdString}),{
-          httpOnly:false
-        })
+        res.cookie('data', JSON.stringify({ objectIdString }), {
+          httpOnly: false,
+          path: '/',       
+          domain: 'mancots.onrender.com',
+          secure:true,
+          sameSite: 'None'
+        });
         res.redirect('https://frontend-snowy-pi-75.vercel.app/api/paymentVerification'); 
       
       } catch (error) {
