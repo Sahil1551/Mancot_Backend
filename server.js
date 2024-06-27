@@ -78,7 +78,7 @@ const crypto = require('crypto');
 const Checkout = require('./models/Checkout');
 app.get('/api/paymentDetails/:id',async(req,res)=>{
   const { id } = req.params;
-
+  console.log('Received ID:', id);
   // Validate if id is a valid ObjectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ msg: 'Invalid Object ID' });
