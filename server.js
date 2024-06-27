@@ -171,7 +171,8 @@ app.post('/api/paymentVerifcation', async(req, res) => {
     }
 
         console.log('Payment status updated successfully',updatedCheckout._id);
-        res.cookie('data',updatedCheckout._id,{
+        objectIdString=updatedCheckout._id.toString();
+        res.cookie('data',JSON.stringify({objectIdString}),{
           httpOnly:false
         })
         res.redirect('https://frontend-snowy-pi-75.vercel.app/api/paymentVerification'); 
