@@ -171,14 +171,24 @@ app.post('/api/paymentVerifcation', async(req, res) => {
     });
     }
 
-        console.log('Payment status updated successfully',updatedCheckout._id);
-        objectIdString=updatedCheckout._id.toString();
-        res.cookie('data', JSON.stringify({ objectIdString }), {
+
+
+
+    idi=updatedCheckout._id.toString();
+        const tokenData = {
+          objectIdString: idi // Replace with actual object id string
+        };
+        const token = jwt.sign(tokenData, process.env.JWT_SECRET_KEY, {
+          expiresIn: '1h' // Optionally set expiration time
+        });
+    
+        // Set JWT token as a cookie
+        res.cookie('idi', token, {
           httpOnly: false,
-          path: '/',       
+          path: '/',
           domain: 'mancots.onrender.com',
-          secure:true,
-          sameSite: 'None'
+          secure: true, // Set to true if using HTTPS
+          sameSite: 'None' // Adjust sameSite policy as per your requirement
         });
         res.redirect('https://frontend-snowy-pi-75.vercel.app/api/paymentVerification'); 
       
