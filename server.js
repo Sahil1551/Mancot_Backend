@@ -23,7 +23,10 @@ const transporter = nodemailer.createTransport({
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://frontend-p2pvht0kk-sahil1551s-projects.vercel.app' // Replace with your frontend domain
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({
