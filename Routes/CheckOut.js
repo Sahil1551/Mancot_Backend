@@ -44,7 +44,7 @@ Router.post('/CheckOutdetails',async(req,res)=>{
         }
         const order=await instance.orders.create(option)
 
-        return res.status(201).json(order)
+        return res.status(201).json(order,newData)
     }
     catch(err){
         return res.status(500).json({msg:err.message})
