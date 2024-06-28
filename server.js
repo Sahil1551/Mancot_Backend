@@ -24,7 +24,8 @@ const app = express();
 
 // Middleware
 const allowedOrigins = [
-  'https://frontend-snowy-pi-75.vercel.app'  // Add other allowed origins as needed
+  'https://frontend-snowy-pi-75.vercel.app',
+  'http://localhost:5173/'  // Add other allowed origins as needed
 ];
 
 const corsOptions = {
