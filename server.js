@@ -171,21 +171,7 @@ app.post('/api/paymentVerifcation', async(req, res) => {
     });
     }
 
-
-
-
-    idi=updatedCheckout._id.toString();
-
-    
-        // Set JWT token as a cookie
-        res.cookie('data', idi, {
-          httpOnly: false,
-          path: '/',
-          domain: 'mancots.onrender.com',
-          secure: true, // Set to true if using HTTPS
-          sameSite: 'None' // Adjust sameSite policy as per your requirement
-        });
-        res.redirect('https://frontend-snowy-pi-75.vercel.app/api/paymentVerification'); 
+    res.redirect('https://frontend-snowy-pi-75.vercel.app/api/paymentVerification'); 
       
       } catch (error) {
         console.error('Error updating payment status:', error);
