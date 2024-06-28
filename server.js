@@ -175,15 +175,10 @@ app.post('/api/paymentVerifcation', async(req, res) => {
 
 
     idi=updatedCheckout._id.toString();
-        const tokenData = {
-          objectIdString: idi // Replace with actual object id string
-        };
-        const token = jwt.sign(tokenData, process.env.JWT_SECRET_KEY, {
-          expiresIn: '1h' // Optionally set expiration time
-        });
+
     
         // Set JWT token as a cookie
-        res.cookie('data', token, {
+        res.cookie('data', idi, {
           httpOnly: false,
           path: '/',
           domain: 'mancots.onrender.com',
