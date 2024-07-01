@@ -26,7 +26,7 @@ const app = express();
 
 
 app.use(cors({
-  origin:['https://backend.vercel.app'],
+  origin:['https://backend-delta-topaz.vercel.app'],
   methods:['POST','GET'],
   credentials:true
 
