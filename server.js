@@ -23,23 +23,14 @@ const transporter = nodemailer.createTransport({
 const app = express();
 
 // Middleware
-const allowedOrigins = [
-  'https://frontend-snowy-pi-75.vercel.app',
-  'http://localhost:5173/'  // Add other allowed origins as needed
-];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true  // Allow cookies and authorization headers
-};
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin:['https://backend.vercel.app'],
+  methods:['POST','GET'],
+  credentials:true
+
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({
