@@ -24,7 +24,7 @@ const app = express();
 
 // Middleware
 
-const allowedOrigins = ['https://backend-delta-topaz.vercel.app', 'https://frontend-snowy-pi-75.vercel.app'];
+const allowedOrigins = ['https://backend-delta-topaz.vercel.app', 'https://frontend-snowy-pi-75.vercel.app','http://localhost:5173'];
 
 app.use(cors({
   origin: function (origin, callback) {
