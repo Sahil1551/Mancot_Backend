@@ -56,9 +56,6 @@ mongoose.connect(process.env.MONGODB_URI , {
 
 // Routes
 
-app.use('/',(req,res)=>{
-  res.json("hello");
-} );
 app.use('/user', require('./Routes/userRoutes'));
 app.use('/api', require('./Routes/productRoutes'));
 app.use('/api', require('./Routes/upload'));
